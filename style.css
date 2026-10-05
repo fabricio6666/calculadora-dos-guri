@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111827;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* CAIXA PRINCIPAL */
+
+.calculadora {
+    width: 360px;
+
+    padding: 20px;
+
+    background: #1f2937;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+
+/* DISPLAY */
+
+.display {
+    min-height: 110px;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    background: #030712;
+
+    border-radius: 14px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+#operacao {
+    width: 100%;
+
+    min-height: 25px;
+
+    color: #9ca3af;
+
+    font-size: 16px;
+
+    text-align: right;
+
+    word-break: break-all;
+}
+
+#resultado {
+    width: 100%;
+
+    color: white;
+
+    font-size: 38px;
+
+    font-weight: bold;
+
+    text-align: right;
+
+    word-break: break-all;
+}
+
+
+/* ÁREA DOS BOTÕES */
+
+.botoes {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+
+/* BOTÕES */
+
+button {
+    height: 60px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #374151;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+button:hover {
+    background: #4b5563;
+
+    transform: translateY(-2px);
+}
+
+
+/* EFEITO AO CLICAR */
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+/* OPERADORES */
+
+.operador {
+    background: #2563eb;
+}
+
+.operador:hover {
+    background: #1d4ed8;
+}
+
+
+/* BOTÕES ESPECIAIS */
+
+.especial {
+    background: #dc2626;
+}
+
+.especial:hover {
+    background: #b91c1c;
+}
+
+
+/* BOTÃO IGUAL */
+
+.igual {
+    background: #16a34a;
+}
+
+.igual:hover {
+    background: #15803d;
+}
+
+
+/* BOTÃO ZERO */
+
+.zero {
+    grid-column: span 2;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 450px) {
+
+    .calculadora {
+        width: 90%;
+    }
+
+    button {
+        height: 55px;
+    }
+
+    #resultado {
+        font-size: 32px;
+    }
+}
