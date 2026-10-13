@@ -191,3 +191,82 @@ function apagar() {
         resultado.textContent = valorAtual;
     }
 }
+
+
+/* CONTROLE PELO TECLADO */
+
+document.addEventListener("keydown", function (evento) {
+
+    const tecla = evento.key;
+
+    let botaoAlvo = null;
+
+    // Números
+    if (tecla >= "0" && tecla <= "9") {
+        botaoAlvo = tecla;
+    }
+
+    // Operações
+    else if (tecla === "+") {
+        botaoAlvo = "+";
+    }
+    else if (tecla === "-") {
+        botaoAlvo = "−";
+    }
+    else if (tecla === "*") {
+        botaoAlvo = "×";
+    }
+    else if (tecla === "/") {
+        botaoAlvo = "÷";
+    }
+    else if (tecla === "%") {
+        botaoAlvo = "%";
+    }
+
+    // Decimal
+    else if (tecla === "," || tecla === ".") {
+        botaoAlvo = ",";
+    }
+
+    // Calcular
+    else if (tecla === "Enter" || tecla === "=") {
+        evento.preventDefault();
+        botaoAlvo = "=";
+    }
+
+    // Apagar
+    else if (tecla === "Backspace") {
+        botaoAlvo = "⌫";
+    }
+
+    // Limpar
+    else if (tecla === "Escape") {
+        botaoAlvo = "C";
+    }
+
+    // Aciona o botão correspondente
+    if (botaoAlvo !== null) {
+        const botoes = document.querySelectorAll(".botoes button");
+
+        for (const botao of botoes) {
+            if (botao.textContent.trim() === botaoAlvo) {
+                botao.click();
+                break;
+            }
+        }
+    }
+
+});
+
+// Fecha a introdução e revela a calculadora
+
+setTimeout(function () {
+    const intro = document.getElementById("intro");
+
+    intro.classList.add("saindo");
+
+    setTimeout(function () {
+        intro.remove();
+    }, 700);
+
+}, 2200);
